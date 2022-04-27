@@ -1,17 +1,17 @@
-.body {
+body {
+    height: 100%;
+    margin: 0;
     background-color: aquamarine;
     color: darkslategray;
 }
 
-body,
 html {
     height: 100%;
     margin: 0;
-    font-family: 'Fredoka';
 }
 
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("fotos/History.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/fotos/History.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;

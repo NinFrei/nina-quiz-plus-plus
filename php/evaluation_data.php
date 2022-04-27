@@ -1,5 +1,13 @@
 <?php
-session_start();
+ session_start(); 
+ /*
+ echo "<pre>";
+ print_r($_SESSION);
+ echo "</pre";
+ */
+
+exit();
+
 $points = 0;
 $text = "-";
 $difficulty = "-";
@@ -45,3 +53,4 @@ foreach($_SESSION as $question => $value){
         else {$text = $answerText["answer3"];
         }
 }
+?>

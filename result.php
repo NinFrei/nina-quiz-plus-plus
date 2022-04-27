@@ -1,19 +1,15 @@
-<?php include "includes/head.php"; ?>
-
-<?php include "includes/header.php";?>
 
 
-<main>
-    <div>
-         
-    </div>   
+
+
     <!-- Hier kommt noch der Data-Collector-->
     <?php
-
-        include "includes/collecting_data.php";
-        include "includes/evaluation_data.php";
-
-    ?>
+        include "php/collecting_data.php";?>
+         
+        <?php  include "php/evaluation_data.php"; ?>
+   
+    <?php include "php/header.php";?>
+<main>
     <div>
         <div class="container-fluid bg-warning text-dark mt-3">
             <div class="container">
