@@ -1,67 +1,86 @@
 
-
-
-
     <!-- Hier kommt noch der Data-Collector-->
     <?php
-        include "php/collecting_data.php";?>
-         
-        <?php  include "php/evaluation_data.php"; ?>
-   
-    <?php include "php/header.php";?>
-<main>
-    <div>
-        <div class="container-fluid bg-warning text-dark mt-3">
-            <div class="container">
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-10">
-                        <h1 id="questionTitle">Dein Ergebnis:</h1>
-                    <?php
-                   
-                        printResult();
-                    
-                    ?>  
-                   
-                    <h3>Vielen Dahk fürs Mitmachen!</h3>
-                </div>
+        include "php/collecting_data.php";
+        include "php/footer.php";
 
-                
-                    
-                        <p id="questionWording"><p>
-                    </div>
-                    <div class="col-1"></div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <form action="result.php" method="post" onsubmit="return validateQuestion();">       
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-10" id="answerPanel">
-                        
-                        </div> 
-                        <div class="col-1"></div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <div class="col-10">
-                                <div>
-                                <input type="hidden" name="lastPageID" value="result">
-                                <p id="validation-warning" class="warning"></p>
-                                
-                               
-                                <a class="btn btn-outline-primary" href="index.php" role="button">Restart</a>
-                                
-                                </div>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</main>
-<?php include "includes/footer.php";?>
+        // Get the lists the achived and maximum points (listed per question).
+        if (isset($_SESSION['achievedPointsList'])) {
+            $achievedPointsList = $_SESSION['achievedPointsList'];
+
+        }
+        else {
+            //LAnds here if result.php is opened in the browser before visiting any question before.
+            $achievedPointsList = array();
+        }
+
+        if (isset($_SESSION['maxPointsList'])) {
+            $maxPointsList = $_SESSION['maxPointsList'];
+        }
+        else {
+            // Lands here if result.php is opened in the browser before visiting any question before.
+            $maxPointsList = array();
+        }
+
+        // Get total of achieved points.
+        $total = 0;
+
+        foreach ($achievedPointsList as $key => $value) {
+            $total += $value; // same as: $total + $value;
+        }
+
+        // Get total of maximum points.
+        $maxTotal = 0;
+
+        foreach ($maxPointsList as $key => $value) {
+            $maxTotal += $value; // same as: $maxtotal + $value;
+        }
+
+        // Depending on the achieved points, set a feedback exclamation.
+        if ($total / $maxTotal >= 0.8) {
+            $exclamation = "Great";
+        }
+        else if ($total / $maxTotal >= 0.4) {
+            $exclamation = "Good";
+        }
+        else {
+            $exclamation = "Autsch";
+        }
+?>
+<h3><?php echo $exclamation; ?>, you god <?php echo $total; ?> of <?php echo $maxTotal; ?> points! </h3>
+<p class="warning"></p>
+<form action="index.php" method="post">
+<input type="submit" value="Again">
+<p slass="warning"></p>
+    </form>
+
+    <?php include 'php/footer.php';
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ?>
