@@ -3,51 +3,51 @@
 
 
 
-if (isset($_POST["lastQuestionIndex"])) {
-    // Get the index (string) of the last question. 
-    $lastQuestionIndex = $_POST["lastQuestionIndex"]; // ohne intval()
-    // And create the key for that question.
-    $questionKey = 'q-' .
-$lastQuestionIndex;
-}
-// ACHIEVED POINTS--------------------------------------
+    if (isset($_POST["lastQuestionIndex"])) {
+        // Get the index (string) of the last question. 
+        $lastQuestionIndex = $_POST["lastQuestionIndex"]; // ohne intval()
+        // And create the key for that question.
+        $questionKey = 'q-' . $lastQuestionIndex;
 
-/*
-Get the number of achieved points, checking all keys in $_POST for the head 'a-', like 'a-0', 'a-1' etc.*/
-$achievedPoints = 0;
+        // ACHIEVED POINTS--------------------------------------
 
-foreach ($_POST as $key => $value){
-if (str_contains($key, 'a-')){
-    //same as: $achievedPoints = $achievedPoints + intval($value);
-$achievedPoints += intval($value);
-}
-}
+        /*
+        Get the number of achieved points, checking all keys in $_POST for the head 'a-', like 'a-0', 'a-1' etc.*/
+        $achievedPoints = 0;
 
-//DEVONLY: echo "$achievedPoints = $achievedPoints<br>";
+        foreach ($_POST as $key => $value){
+            if (str_contains($key, 'a-')){
+                //same as: $achievedPoints = $achievedPoints + intval($value);
+                $achievedPoints += intval($value);
+            }
+        }
 
-// Make sure the list of all achieved points exists in the $_SESSION.
-if (!isset($_SESSION['achievedPointsList'])) {
-    $_SESSION['achievedPointsList'] = array();
-}
-/* 
-Put the achieved points into the list, using a 'q-' headed key, wich identifies the question in the list. */
-$_SESSION['achievedPointsList'][$questionKey] = $achievedPoints;
+        //DEVONLY: echo "$achievedPoints = $achievedPoints<br>";
 
-$maxPoints = intval($_POST['maxPoints']);
+        // Make sure the list of all achieved points exists in the $_SESSION.
+        if (!isset($_SESSION['achievedPointsList'])) {
+            $_SESSION['achievedPointsList'] = array();
+        }
 
-//Make sure the list of all max points exists in the £_SESSION.
-if (!isset($_SESSION['maxPointsList'])) {
-    $_SESSION['maxPointsList'] = array();
-}
+        /* Put the achieved points into the list, using a 'q-' headed key, wich identifies the question in the list. */
+        $_SESSION['achievedPointsList'][$questionKey] = $achievedPoints;
 
-/* Put the achieved points into the list, using a 'q-' headed key, which identifies the question in the list.*/
-$_SESSION['maxPointsList'][$questionKey] = $maxPoints;
+        $maxPoints = intval($_POST['maxPoints']);
 
-/* DEVONLY
-echo '>pre';
-print_r($_SESSION);
-echo ?</pre>;
-// END DEVONLy*/
+        //Make sure the list of all max points exists in the £_SESSION.
+        if (!isset($_SESSION['maxPointsList'])) {
+            $_SESSION['maxPointsList'] = array();
+        }
+
+        /* Put the achieved points into the list, using a 'q-' headed key, which identifies the question in the list.*/
+        $_SESSION['maxPointsList'][$questionKey] = $maxPoints;
+    }
+
+    // DEVONLY
+  /*  echo '<pre>';
+    print_r($_SESSION);
+    echo "</pre>";*/
+    // END DEVONLy
 ?>
 
 

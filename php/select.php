@@ -40,13 +40,13 @@ $currentQuestionIndex = 0;
    }
 // Check if $_SESSION ['question'] exists.
    if(isset($_SESSION['questions'])){
-      echo 'questions data EXIST in session.<br>';
+      //echo 'questions data EXIST in session.<br>';
       $questions = $_SESSION['questions'];
 
    }
    else {
       // Get quiz data from database using php/
-      echo 'question data does NOT exists in session.<br>';
+      //echo 'question data does NOT exists in session.<br>';
       $questions = getQuestions();
       $_SESSION['questions'] = $questions;
    }
@@ -54,9 +54,9 @@ $currentQuestionIndex = 0;
 //And put question and answers data into PHP session.
       $_SESSION['questions'] = $questions;
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($_SESSION['questions']);
-echo '</pre>';
+echo '</pre>';*/
 ?>
 
 

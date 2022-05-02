@@ -6,13 +6,19 @@
 
 <div class="container mt-5">
   <div class="row">
-    <div class="col-sm-4">
-      <h3>Wie gut ist Ihr Allgemeinwissen?</h3>
-      <p>Ihr interessiert euch für Tieren und Pflanzen? Dann seid ihr hier richtig! Testet euer Wissen über die Welt der Tiere und die Natur!</p>
-      <form action="question.php" method="post">
-     
-        <input type="submit" class="btn btn-warning" text="!!! Los geht's !!!">
-      </form>
+  <div class="col-1"></div>
+  <div class="col-10">
+    <h2>Wie gut ist Ihr Allgemeinwissen?</h2>
+    <br>
+    <br>
+    <h6>Ihr interessiert euch für Tieren und Pflanzen? Dann seid ihr hier richtig! Testet euer Wissen über die Welt der Tiere und die Natur!</h6>
+    <form action="question.php" method="post">
+      <br>
+      <br>
+      <input type="submit" class="btn btn-warning btn-lg dropdown-toggle" data-bs-toggle  value="Los geht's!">
+    </form>
+  </div>
+  <div class="col-1"></div>
 
     </div>
   </div>

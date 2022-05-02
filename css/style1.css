@@ -10,6 +10,8 @@ html {
     margin: 0;
 }
 
+
+/*
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/fotos/History.jpg");
     height: 100%;
@@ -26,7 +28,7 @@ html {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-}
+}//
 
 .hero-text button {
     border: none;
@@ -42,7 +44,7 @@ html {
 .hero-text button:hover {
     background-color: green;
     color: white;
-}
+}*/
 
 #select {
     width: 200px;

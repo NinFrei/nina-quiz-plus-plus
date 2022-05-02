@@ -1,6 +1,4 @@
-// author: rico
 
-// cheat 1: show $_SESSION
 
 let checkCheat = 0;
 
@@ -15,15 +13,14 @@ document.addEventListener('keydown', function (event) {
 // restart quiz
 
 function restartQuiz() {
-    window.open("quiz.php?n=n", "_self");
+    window.open("php/index.php?n=n", "_self");
 }
 
 // go back to previous question
 
 function goBackQuestion() {
-    window.open("quiz.php?b=b", "_self");
+    window.open("php/question.php?b=b", "_self");
 }
-
 
 
 
